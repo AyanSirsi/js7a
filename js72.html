@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set and Map Operations</title>
+</head>
+<body>
+    <h2>Set and Map Operations</h2>
+    <button onclick="runSetOperations()">Run Set Operations</button>
+    <button onclick="runMapOperations()">Run Map Operations</button>
+
+    <pre id="output"></pre>
+
+    <script>
+        function runSetOperations() {
+            let output = "";
+
+            
+            let arr = [1, 2, 3, 2, 4, 1];
+            let uniqueSet = new Set(arr);
+            output += "Unique Set from Array: " + [...uniqueSet] + "\n";
+
+            
+            let setA = new Set([1, 2, 3]);
+            let setB = new Set([2, 3, 4]);
+
+            
+            let union = new Set([...setA, ...setB]);
+            output += "Union: " + [...union] + "\n";
+
+            
+            let intersection = new Set([...setA].filter(x => setB.has(x)));
+            output += "Intersection: " + [...intersection] + "\n";
+
+            
+            let difference = new Set([...setA].filter(x => !setB.has(x)));
+            output += "Difference (A - B): " + [...difference] + "\n";
+
+            
+            let subset = new Set([2, 3]);
+            let isSubset = [...subset].every(x => setA.has(x));
+            output += "Is {2, 3} a subset of Set A?: " + isSubset + "\n";
+
+            document.getElementById("output").textContent = output;
+        }
+
+        function runMapOperations() {
+            let output = "";
+
+            
+            let myMap = {
+                name: "Nasreen",
+                age: 21,
+                course: "BCA"
+            };
+
+            
+            output += "Name: " + myMap.name + "\n";
+
+            
+            myMap.age = 22;
+
+            
+            myMap.city = "Hubli";
+
+            
+            delete myMap.course;
+
+            output += "Final Map Object:\n" + JSON.stringify(myMap, null, 2);
+
+            document.getElementById("output").textContent = output;
+        }
+    </script>
+</body>
+</html>

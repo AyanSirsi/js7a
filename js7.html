@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person Object Example</title>
+</head>
+<body>
+    <h2>Person Object Task</h2>
+    <button onclick="createPersons()">Show Person Details</button>
+    <pre id="output"></pre>
+    <script>
+        
+        function Person(name, age, gender, occupation) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.occupation = occupation;
+        }
+
+        function createPersons() {
+            
+            let person1 = new Person("ayan", 21, "male", "student");
+            let person2 = new Person("Amit", 25, "Male", "Software Developer");
+
+            
+            let output = "";
+            output += "Person 1:\n";
+            output += `Name: ${person1.name}\nAge: ${person1.age}\nGender: ${person1.gender}\nOccupation: ${person1.occupation}\n\n`;
+            output += "Person 2:\n";
+            output += `Name: ${person2.name}\nAge: ${person2.age}\nGender: ${person2.gender}\nOccupation: ${person2.occupation}`;
+            document.getElementById("output").innerText = output;
+        }
+    </script>
+</body>
+</html>
